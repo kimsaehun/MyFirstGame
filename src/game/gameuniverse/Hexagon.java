@@ -7,7 +7,7 @@ package game.gameuniverse;
  *     i) vertically Oriented (pointy top).
  *     ii) a regular hexagon. All sides have equal length.
  */
-public class Hexagon {
+public class Hexagon extends Shape2D{
     private double sideLength;
 
     /**
