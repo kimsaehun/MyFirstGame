@@ -1,5 +1,7 @@
 package game.gameuniverse.gameworld.gamecomponents;
 
+import game.gameuniverse.Hexagon;
+import game.gameuniverse.Shape2D;
 import javafx.scene.image.Image;
 
 /**
@@ -7,18 +9,33 @@ import javafx.scene.image.Image;
  */
 public class Tile {
     private Image image;
+    private Shape2D shape;
+    private double sideLength;
 
     /**
-     * Constructor
+     * Default Constructor
      */
     public Tile() {
-        image = new Image("/res/tileGrass_tile.png");
+        sideLength = 0;
+        shape = new Hexagon();
     }
 
     /**
-     * Getter method
+     * Overloaded Constructor
+     *
+     * @param sideLength the length of one side of the tile
+     * @param image the associated image for the tile
      */
+    public Tile(double sideLength, Image image) {
+        this.sideLength = sideLength;
+        shape = new Hexagon(sideLength);
+        this.image = image;
+    }
+
+    // Helper Functions
     public Image getImage() {
         return image;
     }
+
+    public void setImage(Image image) { this.image = image;}
 }
