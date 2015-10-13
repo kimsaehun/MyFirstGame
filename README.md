@@ -1,2 +1,2 @@
 # MyFirstGame
-First Attemp at making a game.
+First Attempt at making a game.
