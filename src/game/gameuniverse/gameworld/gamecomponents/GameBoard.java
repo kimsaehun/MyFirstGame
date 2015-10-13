@@ -1,39 +1,15 @@
 package game.gameuniverse.gameworld.gamecomponents;
 
 /**
- * GameBoard
+ * Provides a model for a GameBoard.
+ *
+ * A game board is the physical surface of the game world.
+ * Game components are usually placed on the game board.
  */
 public class GameBoard {
-    private Tile tile;
-    private double tileX;
-    private double tileY;
     /**
-     * Constructor
+     * Default Constructor
      */
     public GameBoard() {
-        tile = new Tile();
-        tileX = 0;
-        tileY = 0;
-    }
-
-    /**
-     * Getter method for tile
-     */
-    public Tile getTile() {
-        return tile;
-    }
-
-    /**
-     * Getter method for tileX
-     */
-    public double getTileX() {
-        return tileX;
-    }
-
-    /**
-     * Getter method for tileY
-     */
-    public double getTileY(){
-        return tileY;
     }
 }

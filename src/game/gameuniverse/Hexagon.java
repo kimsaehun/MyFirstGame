@@ -11,14 +11,14 @@ public class Hexagon extends Shape2D{
     private double sideLength;
 
     /**
-     * Constructor
+     * Default Constructor
      */
     public Hexagon() {
         sideLength = 0;
     }
 
     /**
-     * Constructor
+     * Overloaded Constructor
      *
      * @param sideLength the length of a side.
      */

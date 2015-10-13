@@ -5,7 +5,9 @@ import game.gameuniverse.Shape2D;
 import javafx.scene.image.Image;
 
 /**
- * Tile
+ * Provides a model for a tile.
+ *
+ * A tile is a game component used to represent a unit of area on a game board.
  */
 public class Tile {
     private Image image;

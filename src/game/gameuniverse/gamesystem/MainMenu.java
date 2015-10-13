@@ -16,13 +16,16 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// TODO: Fix this class.
+
 /**
  * Provides the main menu for the game.
  */
 public class MainMenu{
     private GridPane layout = new GridPane();
+
     /**
-     * Creates an instance of MainMenu.
+     * Default Constructor
      */
     public MainMenu(Stage stage) {
         // Set up the GridPane
@@ -41,11 +44,6 @@ public class MainMenu{
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // TODO: Enter BeginnersHub
-                BeginnersHub hub = new BeginnersHub();
-                VisualSystem vs = new VisualSystem();
-                vs.drawGameBoard(hub);
-                stage.setScene(vs.getScene());
-                stage.show();
             }
         });
         HBox hbBtn = new HBox(10);
@@ -54,9 +52,7 @@ public class MainMenu{
         layout.add(hbBtn, 0, 1);
     }
 
-    /**
-     * Returns the layout of the Main Menu
-     */
+    // Helper Functions
     public Pane getLayout() {
         return layout;
     }

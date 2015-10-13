@@ -9,16 +9,12 @@ public class BeginnersHub {
     private GameBoard board;
 
     /**
-     * Constructor
+     * Default Constructor
      */
     public BeginnersHub() {
         board = new GameBoard();
     }
 
-    /**
-     * Getter for board
-     */
-    public GameBoard getBoard() {
-        return board;
-    }
+    // Helper Functions
+    public GameBoard getBoard() { return board; }
 }

@@ -9,7 +9,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 /**
- * System used to allow vision of the GameWorld
+ * System used to give vision of the GameWorld
  */
 public class VisualSystem {
     private Group group;
@@ -18,7 +18,7 @@ public class VisualSystem {
     private GraphicsContext graphicsContext;
 
     /**
-     * Constructor
+     * Default Constructor
      */
     public VisualSystem() {
         group = new Group();
@@ -28,18 +28,10 @@ public class VisualSystem {
         group.getChildren().add(canvas);
     }
 
-    /**
-     * Draw the GameBoard
-     */
-    public void drawGameBoard(BeginnersHub hub) {
-        graphicsContext.drawImage(hub.getBoard().getTile().getImage(),
-                hub.getBoard().getTileX(), hub.getBoard().getTileY());
-    }
-
-    /**
-     * Getter method for scene
-     */
+    // Helper Function
     public Scene getScene() {
         return scene;
     }
+
+    public void setScene(Scene scene) { this.scene = scene; }
 }
