@@ -35,7 +35,7 @@ public class Tile {
         this.image = image;
     }
 
-    // Helper Functions
+    // Getters and Setters
     public Image getImage() {
         return image;
     }

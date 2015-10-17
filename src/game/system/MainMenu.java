@@ -34,7 +34,7 @@ public class MainMenu{
         // Add title of the MainMenu
         Text title = new Text("Main Menu");
         title.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        layout.add(title, 0, 0);//, 2, 1
+        layout.add(title, 0, 0);
 
         // Add button to start playing
         Button startButton = new Button("Start");
@@ -49,7 +49,7 @@ public class MainMenu{
         layout.add(hbBtn, 0, 1);
     }
 
-    // Helper Functions
+    // Getters and Setters
     public Pane getLayout() {
         return layout;
     }

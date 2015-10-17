@@ -26,7 +26,7 @@ public class Hexagon extends Shape2D{
         this.sideLength = sideLength;
     }
 
-    // Helper Functions
+    // Getters and Setters
     public double getSideLength() { return sideLength; }
 
     public void setSideLength(double sideLength) { this.sideLength = sideLength; }

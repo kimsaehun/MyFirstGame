@@ -6,7 +6,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
- * System used to give vision of the GameWorld
+ * System used to give vision of the game.
  */
 public class VisualSystem {
     private Group group;
@@ -19,13 +19,13 @@ public class VisualSystem {
      */
     public VisualSystem() {
         group = new Group();
-        scene = new Scene(group, 300, 275);
-        canvas = new Canvas(300, 275);
+        scene = new Scene(group, 768, 432);
+        canvas = new Canvas( 768, 432);
         graphicsContext = canvas.getGraphicsContext2D();
         group.getChildren().add(canvas);
     }
 
-    // Helper Function
+    // Getters and Setters
     public Scene getScene() {
         return scene;
     }
