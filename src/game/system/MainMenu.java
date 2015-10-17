@@ -1,12 +1,9 @@
-package game.gameuniverse.gamesystem;
+package game.system;
 
-import com.sun.media.jfxmedia.events.VideoTrackSizeListener;
-import game.gameuniverse.gameworld.BeginnersHub;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -43,7 +40,7 @@ public class MainMenu{
         Button startButton = new Button("Start");
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                // TODO: Enter BeginnersHub
+                // TODO: Set up game.
             }
         });
         HBox hbBtn = new HBox(10);

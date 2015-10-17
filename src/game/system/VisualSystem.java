@@ -1,12 +1,9 @@
-package game.gameuniverse.gamesystem;
+package game.system;
 
-import game.gameuniverse.gameworld.BeginnersHub;
-import game.gameuniverse.gameworld.gamecomponents.GameBoard;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 
 /**
  * System used to give vision of the GameWorld

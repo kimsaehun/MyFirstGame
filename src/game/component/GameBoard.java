@@ -1,10 +1,10 @@
-package game.gameuniverse.gameworld.gamecomponents;
+package game.component;
 
 /**
  * Provides a model for a GameBoard.
  *
  * A game board is the physical surface of the game world.
- * Game components are usually placed on the game board.
+ * Game component are usually placed on the game board.
  */
 public class GameBoard {
     /**

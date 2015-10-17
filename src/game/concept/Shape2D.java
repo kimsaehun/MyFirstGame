@@ -1,4 +1,4 @@
-package game.gameuniverse;
+package game.concept;
 
 /**
  * Abstract class for a 2 dimensional shape

@@ -1,6 +1,6 @@
-package sample;
+package main;
 
-import game.gameuniverse.gamesystem.MainMenu;
+import game.system.MainMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

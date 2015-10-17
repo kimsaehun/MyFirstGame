@@ -1,4 +1,4 @@
-package game.gameuniverse;
+package game.concept;
 
 /**
  * Provides a model for a hexagon, a plane figure with 6 sides.

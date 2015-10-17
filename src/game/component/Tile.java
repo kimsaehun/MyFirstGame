@@ -1,7 +1,7 @@
-package game.gameuniverse.gameworld.gamecomponents;
+package game.component;
 
-import game.gameuniverse.Hexagon;
-import game.gameuniverse.Shape2D;
+import game.concept.Hexagon;
+import game.concept.Shape2D;
 import javafx.scene.image.Image;
 
 /**
