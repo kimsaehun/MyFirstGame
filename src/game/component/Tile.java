@@ -26,12 +26,13 @@ public class Tile {
     /**
      * Overloaded Constructor
      *
-     * @param sideLength the length of one side of the tile
-     * @param image the associated image for the tile
+     * @param orientation the orientation of the tile.
+     * @param sideLength the length of one side of the tile.
+     * @param image the associated image for the tile.
      */
-    public Tile(double sideLength, Image image) {
+    public Tile(Hexagon.Orientation orientation, double sideLength, Image image) {
         this.sideLength = sideLength;
-        shape = new Hexagon(sideLength);
+        shape = new Hexagon(orientation, sideLength);
         this.image = image;
     }
 

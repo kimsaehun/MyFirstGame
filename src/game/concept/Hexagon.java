@@ -15,13 +15,14 @@ public class Hexagon extends Shape2D{
      * Default Constructor
      */
     public Hexagon() {
-        orientation = Orientation.VERTICAL;
+        orientation = null;
         sideLength = 0;
     }
 
     /**
      * Overloaded Constructor
      *
+     * @param orientation the orientation of the Hexagon.
      * @param sideLength the length of a side.
      */
     public Hexagon(Orientation orientation, double sideLength) {
