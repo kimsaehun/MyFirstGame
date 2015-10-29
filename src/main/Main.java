@@ -5,6 +5,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+// TODO: Add a gamesystem class.
+
 /**
  * This class is the entry point of the program.
  */
