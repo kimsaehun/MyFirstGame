@@ -1,5 +1,6 @@
 package game.system;
 
+import game.component.GameBoard;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -13,7 +14,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-// TODO: Fix this class.
+// TODO: Fix this whole class.
 
 /**
  * Provides the main menu for the game.
@@ -38,9 +39,13 @@ public class MainMenu{
 
         // Add button to start playing
         Button startButton = new Button("Start");
+        GameBoard gameBoard = new GameBoard(768,432);
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                // TODO: Set up game.
+                VisualSystem vs = new VisualSystem();
+                vs.displayGameBoard(gameBoard);
+                stage.setScene(vs.getScene());
+                stage.show();
             }
         });
         HBox hbBtn = new HBox(10);
