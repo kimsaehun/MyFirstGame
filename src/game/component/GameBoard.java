@@ -3,7 +3,6 @@ package game.component;
 
 // TODO: make this class a singleton class. Only one copy of the game board will exist.
 
-import game.concept.Graph;
 import javafx.scene.image.Image;
 
 /**
@@ -18,13 +17,21 @@ public class GameBoard {
 
     private Image image;
 
-    private Graph graph;
+    private final int MAX_COLUMN = 11;
+    private Tile[][] graph;
 
     /**
      * Default Constructor
      */
     public GameBoard() {
-        // TODO: Initialize variables.
-        // TODO: Graph of hexagons. Vertical orientation. Cube Coordinate. [-5, 5] x [-3, 3] x [-2, 2]
+        // TODO: Set background image.
+
+        // TODO: Put this hexagon graph initialization routine in some other class/interface/method/whatever.
+        // Initialize graph for the tiles.
+        graph = new Tile[11][4]; // 11 columns x 4 rows
+        // Hexagon graph alternates from 3 rows and 4 rows.
+        for (int column = 0; column < graph.length; column += 2) {
+            graph[column][0] = null;
+        }
     }
 }
