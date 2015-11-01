@@ -32,7 +32,7 @@ public class GameBoard {
         this.width = 768;
         this.height = 432;
 
-        image = new Image("/res/gameboard_background.png");
+        image = new Image("/res/gameboard/gameboard_background.png");
 
         // TODO: Put this hexagon graph initialization routine in some other class/interface/method/whatever.
         // Initialize graph for the tiles.
