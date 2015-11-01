@@ -1,6 +1,7 @@
 package game.system;
 
 import game.component.GameBoard;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -29,7 +30,20 @@ public class VisualSystem {
 
     // Temporary function just to get something running
     public void displayGameBoard(GameBoard gameBoard) {
-        graphicsContext.drawImage(new Image("res/tileGrass_tile.png"),100, 100);
+        graphicsContext.drawImage(new Image("res/gameboard_background.png"),0, 0);
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 4; j++) {
+                Point2D tempPoint = gameBoard.getPoint2DAt(i,j);
+                if (tempPoint != null) {
+                    double x = tempPoint.getX();
+                    double y = tempPoint.getY();
+                    System.out.println(x + "  " + y);
+                    if (gameBoard.getTileAt(i, j) != null) {
+                        graphicsContext.drawImage(gameBoard.getTileAt(i,j).getImage(), x, y);
+                    }
+                }
+            }
+        }
     }
 
     // Getters and Setters
