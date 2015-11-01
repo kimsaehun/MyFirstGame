@@ -19,7 +19,7 @@ public class GameBoard {
 
     private Image image;
 
-    private final int MAX_COLUMNS = 11;
+    private final int MAX_COLUMNS = 9;
     private final int MAX_ROWS = 4;
 
     private Tile[][] graph; // Graph of hexagons
@@ -45,20 +45,21 @@ public class GameBoard {
             grid[column][0] = null;
         }
 
-        double startX = 35;
-        double startY = 41 + 11.625;
+        double startX = 78;
+        double startY = 80;
+        double padding = 2;
         double tempStartY = startY;
         for (int column = 0; column < graph.length; column++) {
             for (int row = 0; row < graph[column].length; row++) {
                 if (column % 2 == 0 && row == 0) {  // if column is 0 or even, only 3 hexagons in the column
-                    tempStartY += 87 / 2;
+                    tempStartY += (64 + 2 * padding) / 2;
                 } else {
                     graph[column][row] = new Tile();
-                    grid[column][row] = new Point2D(startX, tempStartY);
-                    tempStartY += 87;
+                    grid[column][row] = new Point2D(startX + padding, tempStartY + padding);
+                    tempStartY += 64 + 2 * padding;
                 }
             }
-            startX += 64;
+            startX += 64 + 2 * padding;
             tempStartY = startY;
         }
     }
