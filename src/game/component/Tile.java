@@ -20,7 +20,7 @@ public class Tile {
     public Tile() {
         sideLength = 0;
         shape = new Hexagon();
-        image = null;
+        image = new Image ("res/tile_empty.png");
     }
 
     /**
