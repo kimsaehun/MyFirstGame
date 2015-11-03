@@ -30,7 +30,7 @@ public class VisualSystem {
 
     // Temporary function just to get something running
     public void displayGameBoard(GameBoard gameBoard) {
-        graphicsContext.drawImage(new Image("res/gameboard_background.png"),0, 0);
+        graphicsContext.drawImage(new Image("res/gameboard/gameboard_background.png"),0, 0);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 4; j++) {
                 Point2D tempPoint = gameBoard.getPoint2DAt(i,j);

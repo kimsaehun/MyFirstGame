@@ -39,6 +39,7 @@ public class Hexagon extends Shape2D{
         this.orientation = orientation;
     }
 
+    // Getters and Setters
     @Override
     public double getSideLength() {
         return sideLength;

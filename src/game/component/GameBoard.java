@@ -4,6 +4,7 @@ package game.component;
 // TODO: Make this class a singleton class. Only one copy of the game board will exist.
 // TODO: Maybe just make a board class. Maybe have a board called playingField for graph and grid.
 
+import game.concept.HexagonTileMap;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 
@@ -19,10 +20,16 @@ public class GameBoard {
 
     private Image image;
 
+    // private final int X_RANGE = 9; // x range is [-4,4]
+    // private final int Y_RANGE = 7; // y range is [-3,3]
+    // private final int Z_RANGE = 7; // z range is [-3,3]
+
     private final int MAX_COLUMNS = 9;
     private final int MAX_ROWS = 4;
 
-    private Tile[][] graph; // Graph of hexagons
+    private HexagonTileMap map;
+
+    private Tile[][] graph;
     private Point2D[][] grid; // (x, y)Grid for hexagons
 
     /**
@@ -36,6 +43,7 @@ public class GameBoard {
 
         // TODO: Put this hexagon graph initialization routine in some other class/interface/method/whatever.
         // Initialize graph for the tiles.
+        map = new HexagonTileMap();
         graph = new Tile[MAX_COLUMNS][MAX_ROWS]; // 11 columns x 4 rows
         grid = new Point2D[MAX_COLUMNS][MAX_ROWS];
 
@@ -43,6 +51,12 @@ public class GameBoard {
         for (int column = 0; column < graph.length; column += 2) {
             graph[column][0] = null;
             grid[column][0] = null;
+        }
+
+        for (int column = 0; column < MAX_COLUMNS; column++) {
+            for (int row = 0; row < MAX_ROWS; row++) {
+                
+            }
         }
 
         double startX = 78;

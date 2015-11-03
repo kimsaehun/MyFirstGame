@@ -10,12 +10,13 @@ public interface Map<K, V> {
      * @param key The identifier of the value.
      * @param value The value to be stored.
      */
-    public void insert(K key, V value);
+    public void put(K key, V value);
 
     /**
      * Returns the value associated with the key.
      *
      * @param key The identifier to search for.
+     * @return    The value associated with the key.
      */
     public V get(K key);
 
@@ -23,6 +24,7 @@ public interface Map<K, V> {
      * Returns a true if the value is found in the map.
      *
      * @param value The value to search for.
+     * @return      True if the value exists. Otherwise returns false.
      */
     public boolean contains(V value);
 
@@ -33,4 +35,16 @@ public interface Map<K, V> {
      * @param newValue The new value to be associated with the key.
      */
     public void replace(K key, V newValue);
+
+    /**
+     * Returns the number of key value pairs in the map.
+     *
+     * @return The size of the map
+     */
+    public int size();
+
+    /**
+     * Clears all the key value pairs in the map.
+     */
+    public void clear();
 }
