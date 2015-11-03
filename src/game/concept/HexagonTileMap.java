@@ -7,6 +7,8 @@ import javafx.geometry.Point3D;
 
 /**
  * This class provides a map for the hexagonal tiles that is used in the game.
+ *
+ * This class uses cube coordinates to map the tiles. The origin is at the middle of the topmost row.
  */
 public class HexagonTileMap implements Map<Point3D, Tile> {
     private Entry[] map;
@@ -59,6 +61,9 @@ public class HexagonTileMap implements Map<Point3D, Tile> {
         // TODO: Replaces old value with new value.
     }
 
+    /**
+     * This member class is the key value pair for the HexagonTileMap.
+     */
     private class Entry{
         private Point3D key;
         private Tile value;
