@@ -53,4 +53,12 @@ public class Tile extends Component{
     public void setImage(Image image) {
         this.image = image;
     }
+
+    public double getXCoordinate() { return xCoordinate; }
+
+    public double getYCoordinate() { return yCoordinate; }
+
+    public void setXCoordinate(double xCoordinate) { this.xCoordinate = xCoordinate; }
+
+    public void setYCoordinate(double yCoordinate) { this.yCoordinate = yCoordinate; }
 }

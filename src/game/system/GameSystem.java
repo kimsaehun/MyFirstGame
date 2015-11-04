@@ -4,6 +4,8 @@ package game.system;
 
 import game.component.Component;
 import game.component.GameBoard;
+import game.component.Tile;
+import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 
 import java.util.ArrayList;
@@ -32,7 +34,9 @@ public class GameSystem {
      * Sets up the game for a play through.
      */
     public void setUpGame() {
-        components.add(new GameBoard(768, 532, 0, 0));
+        GameBoard gameBoard = new GameBoard(768, 532, 0, 0);
+        gameBoard.placeTileAt(new Point2D(0,0), new Tile());
+        components.add(gameBoard);
     }
 
     // TODO: Put this in the game loop

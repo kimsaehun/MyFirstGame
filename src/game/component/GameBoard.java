@@ -62,6 +62,8 @@ public class GameBoard extends Component{
      * @param Tile The tile to be placed.
      */
     public void placeTileAt(Point2D xyCoordinate, Tile tile) {
+        tile.setXCoordinate(xyCoordinate.getX());
+        tile.setYCoordinate(xyCoordinate.getY());
         map.put(xyCoordinate, tile);
     }
 
