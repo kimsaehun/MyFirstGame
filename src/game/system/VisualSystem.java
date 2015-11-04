@@ -1,6 +1,7 @@
 package game.system;
 
 import game.component.GameBoard;
+import game.concept.HexagonTileMap;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -31,6 +32,8 @@ public class VisualSystem {
     // Temporary function just to get something running
     public void displayGameBoard(GameBoard gameBoard) {
         graphicsContext.drawImage(new Image("res/gameboard/gameboard_background.png"),0, 0);
+        gameBoard.draw(graphicsContext);
+        /*
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 4; j++) {
                 Point2D tempPoint = gameBoard.getPoint2DAt(i,j);
@@ -44,6 +47,7 @@ public class VisualSystem {
                 }
             }
         }
+        */
     }
 
     // Getters and Setters

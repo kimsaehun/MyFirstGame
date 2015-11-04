@@ -5,7 +5,9 @@ package game.component;
 // TODO: Maybe just make a board class. Maybe have a board called playingField for graph and grid.
 
 import game.concept.HexagonTileMap;
+import game.system.Drawable;
 import javafx.geometry.Point2D;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 /**
@@ -14,7 +16,7 @@ import javafx.scene.image.Image;
  * A game board is a physical surface of a game.
  * Game components are usually placed on the game board.
  */
-public class GameBoard {
+public class GameBoard implements Drawable{
     private double width;
     private double height;
 
@@ -27,7 +29,7 @@ public class GameBoard {
     private final int MAX_COLUMNS = 9;
     private final int MAX_ROWS = 4;
 
-    private HexagonTileMap map;
+    private HexagonTileMap hexagonTileMap;
 
     private Tile[][] graph;
     private Point2D[][] grid; // (x, y)Grid for hexagons
@@ -43,7 +45,8 @@ public class GameBoard {
 
         // TODO: Put this hexagon graph initialization routine in some other class/interface/method/whatever.
         // Initialize graph for the tiles.
-        map = new HexagonTileMap();
+        hexagonTileMap = new HexagonTileMap(width, height, 64 + 4);
+        /*
         graph = new Tile[MAX_COLUMNS][MAX_ROWS]; // 11 columns x 4 rows
         grid = new Point2D[MAX_COLUMNS][MAX_ROWS];
 
@@ -53,11 +56,7 @@ public class GameBoard {
             grid[column][0] = null;
         }
 
-        for (int column = 0; column < MAX_COLUMNS; column++) {
-            for (int row = 0; row < MAX_ROWS; row++) {
-                
-            }
-        }
+
 
         double startX = 78;
         double startY = 80;
@@ -76,6 +75,7 @@ public class GameBoard {
             startX += 64 + 2 * padding;
             tempStartY = startY;
         }
+        */
     }
 
     // Place tile at the given x,y coordinate
@@ -96,5 +96,20 @@ public class GameBoard {
     // Getter
     public Point2D getPoint2DAt(int column, int row) {
         return grid[column][row];
+    }
+
+    // Getter
+    public HexagonTileMap getHexagonTileMap() {
+        return hexagonTileMap;
+    }
+
+    /**
+     * Draws the class onto the screen.
+     *
+     * @param graphicsContext
+     */
+    @Override
+    public void draw(GraphicsContext graphicsContext) {
+
     }
 }
