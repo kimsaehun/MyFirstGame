@@ -53,6 +53,7 @@ public class GameBoard extends Component{
         this.height = 432;
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
+        map = new HashMap<>();
     }
 
     /**
@@ -80,5 +81,7 @@ public class GameBoard extends Component{
     @Override
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.drawImage(image, xCoordinate, yCoordinate);
+        for (Map.Entry<Point2D, Tile> entry : map.entrySet())
+            entry.getValue().draw(graphicsContext);
     }
 }
