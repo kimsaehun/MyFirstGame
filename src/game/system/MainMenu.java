@@ -39,12 +39,12 @@ public class MainMenu{
 
         // Add button to start playing
         Button startButton = new Button("Start");
-        GameBoard gameBoard = new GameBoard(768,432);
+        GameBoard gameBoard = new GameBoard(768,432, 0, 0);
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                VisualSystem vs = new VisualSystem();
-                vs.displayGameBoard(gameBoard);
-                stage.setScene(vs.getScene());
+                GameSystem gs = new GameSystem();
+                gs.drawGame();
+                stage.setScene(gs.getScene());
                 stage.show();
             }
         });

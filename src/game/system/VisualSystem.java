@@ -1,5 +1,6 @@
 package game.system;
 
+import game.component.Component;
 import game.component.GameBoard;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -27,8 +28,8 @@ public class VisualSystem {
     }
 
     // Temporary function just to get something running
-    public void displayGameBoard(GameBoard gameBoard) {
-        gameBoard.draw(graphicsContext);
+    public void draw(Component component) {
+        component.draw(graphicsContext);
     }
 
     // Getters and Setters

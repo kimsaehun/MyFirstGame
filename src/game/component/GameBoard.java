@@ -4,7 +4,6 @@ package game.component;
 // TODO: Make this class a singleton class. Only one copy of the game board will exist.
 // TODO: Maybe just make a board class. Maybe have a board called playingField for graph and grid.
 
-import game.system.Drawable;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -18,7 +17,7 @@ import java.util.Map;
  * A game board is a physical surface of a game.
  * Game components are usually placed on the game board.
  */
-public class GameBoard implements Drawable{
+public class GameBoard extends Component{
     private final Image image; // The image associated with this board.
 
     private double width; // The width in pixels
@@ -33,6 +32,7 @@ public class GameBoard implements Drawable{
      * Default Constructor
      */
     public GameBoard() {
+        super();
         image = new Image("/res/gameboard/gameboard_background.png");
         width = height = 0;
         xCoordinate = yCoordinate = 0;
@@ -75,11 +75,6 @@ public class GameBoard implements Drawable{
         map.replace(xyCoordinate, tile);
     }
 
-    /**
-     * Draws the class onto the screen.
-     *
-     * @param graphicsContext
-     */
     @Override
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.drawImage(image, xCoordinate, yCoordinate);

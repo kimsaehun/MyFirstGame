@@ -15,7 +15,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        GameBoard gameBoard = new GameBoard(768 , 432);
         primaryStage.setTitle("MyFirstGame");
         MainMenu mainMenu = new MainMenu(primaryStage);
         Scene titleScene = new Scene(mainMenu.getLayout(), 768, 432);
