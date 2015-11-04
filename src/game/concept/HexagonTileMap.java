@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * This class provides a map for the hexagonal tiles that is used in the game.
- *
+ * <p>
  * This class uses cube coordinates to map the tiles. The origin is at the middle of the topmost row.
  */
 public class HexagonTileMap implements Map<Point3D, Tile> {
@@ -21,17 +21,45 @@ public class HexagonTileMap implements Map<Point3D, Tile> {
     /**
      * Default constructor.
      */
-    public HexagonTileMap(){ map  = new ArrayList<>(); }
+    public HexagonTileMap() {
+        map = new ArrayList<>();
+        width = 0;
+        height = 0;
+    }
 
     /**
-     * Overloaded constructor that constructs a hexagon tile map on its own.
+     * Overloaded constructor that constructs a "small order" vertical hexagon tile map on its own.
+     *
+     * The columns alternates from (height - 1) to height number of hexagons. The reason behind the alterations is
+     * because vertically oriented hexagons to not stack evenly horizontally. "Small order" refers to the leftmost
+     * column containing (height - 1) hexagons.
      *
      * @param mapWidthInPixels  The desired width of the map.
      * @param mapHeightInPixels The desired height of the map.
      * @param unitSize          The length of one side of a square unit.
      */
     public HexagonTileMap(double mapWidthInPixels, double mapHeightInPixels, double unitSize) {
+        width = (int) Math.floor(mapWidthInPixels / unitSize);
+        height = (int) (Math.floor(mapHeightInPixels / unitSize));
 
+        // Start with the leftmost top tile as origin.
+        int x = 0;
+        int y = 0;
+        int z = 0;
+        Point3D origin = new Point3D(x,y,z);
+        int row = 0; // Corresponds to height
+        int column = 0; // Corresponds to width
+        for (int c = 0; c < width; c++) {
+            x = c;
+            if (c % 2 == 1) { // For each "big" column
+                z--;
+            }
+            y = (-x) - z; // Calculate y from x and z. For all valid coordinates x + y + z = 0
+            for (int r = 0; r < (c % 2 == 0 ? height - 1 : height) ; r++) { // alternate small and big
+                map.add(new Unit(new Point3D(x, y - r, z + r), new Tile()));
+            }
+            x = y = z = 0; // Reset all coordinates.
+        }
     }
 
 
@@ -48,7 +76,7 @@ public class HexagonTileMap implements Map<Point3D, Tile> {
      * Returns the value associated with the key.
      *
      * @param point3D The identifier to search for.
-     * @return        The value associated with the key.
+     * @return The value associated with the key.
      */
     @Override
     public Tile get(Point3D cubeCoordinate) {
@@ -60,7 +88,7 @@ public class HexagonTileMap implements Map<Point3D, Tile> {
      * Returns a true if the value is found in the map.
      *
      * @param value The value to search for.
-     * @return      True if the value exists in the map. Otherwise returns false.
+     * @return True if the value exists in the map. Otherwise returns false.
      */
     @Override
     public boolean contains(Tile value) {
@@ -100,7 +128,7 @@ public class HexagonTileMap implements Map<Point3D, Tile> {
     /**
      * This member class is the key value pair for the HexagonTileMap.
      */
-    private class Unit{
+    private class Unit {
         private Point3D key;
         private Tile value;
 
@@ -112,7 +140,7 @@ public class HexagonTileMap implements Map<Point3D, Tile> {
          */
         public Unit(Point3D key, Tile value) {
             this.key = key;
-            this. value = value;
+            this.value = value;
         }
 
         // Getters
