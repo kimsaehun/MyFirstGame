@@ -1,7 +1,5 @@
 package game.component;
 
-import game.concept.Hexagon;
-import game.concept.Shape2D;
 import game.system.Drawable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -13,16 +11,16 @@ import javafx.scene.image.Image;
  */
 public class Tile implements Drawable {
     private Image image;
-    private double xCoord;
-    private double yCoord;
+    private double xCoordinate;
+    private double yCoordinate;
 
     /**
      * Default Constructor
      */
     public Tile() {
         image = new Image("res/tile/tile_empty.png");
-        xCoord = 0;
-        yCoord = 0;
+        xCoordinate = 0;
+        yCoordinate = 0;
     }
 
     /**
@@ -33,17 +31,8 @@ public class Tile implements Drawable {
      */
     public Tile(double xCoord, double yCoord) {
         image = new Image("res/tile/tile_empty.png");
-        this.xCoord = xCoord;
-        this.yCoord = yCoord;
-    }
-
-    // Getters and Setters
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
+        this.xCoordinate = xCoord;
+        this.yCoordinate = yCoord;
     }
 
     /**
@@ -53,6 +42,15 @@ public class Tile implements Drawable {
      */
     @Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(image, xCoord, yCoord);
+        graphicsContext.drawImage(image, xCoordinate, yCoordinate);
+    }
+
+    // Getters and Setters
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

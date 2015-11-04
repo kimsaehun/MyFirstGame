@@ -1,13 +1,10 @@
 package game.system;
 
 import game.component.GameBoard;
-import game.concept.HexagonTileMap;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 
 /**
  * System used to give vision of the game.
@@ -31,23 +28,7 @@ public class VisualSystem {
 
     // Temporary function just to get something running
     public void displayGameBoard(GameBoard gameBoard) {
-        graphicsContext.drawImage(new Image("res/gameboard/gameboard_background.png"),0, 0);
         gameBoard.draw(graphicsContext);
-        /*
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 4; j++) {
-                Point2D tempPoint = gameBoard.getPoint2DAt(i,j);
-                if (tempPoint != null) {
-                    double x = tempPoint.getX();
-                    double y = tempPoint.getY();
-                    System.out.println(x + "  " + y);
-                    if (gameBoard.getTileAt(i, j) != null) {
-                        graphicsContext.drawImage(gameBoard.getTileAt(i,j).getImage(), x, y);
-                    }
-                }
-            }
-        }
-        */
     }
 
     // Getters and Setters

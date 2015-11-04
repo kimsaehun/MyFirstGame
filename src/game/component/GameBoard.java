@@ -4,11 +4,13 @@ package game.component;
 // TODO: Make this class a singleton class. Only one copy of the game board will exist.
 // TODO: Maybe just make a board class. Maybe have a board called playingField for graph and grid.
 
-import game.concept.HexagonTileMap;
 import game.system.Drawable;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Provides a model for the physical game board.
@@ -17,90 +19,60 @@ import javafx.scene.image.Image;
  * Game components are usually placed on the game board.
  */
 public class GameBoard implements Drawable{
-    private double width;
-    private double height;
+    private final Image image; // The image associated with this board.
 
-    private Image image;
+    private double width; // The width in pixels
+    private double height; // The height in pixels
 
-    // private final int X_RANGE = 9; // x range is [-4,4]
-    // private final int Y_RANGE = 7; // y range is [-3,3]
-    // private final int Z_RANGE = 7; // z range is [-3,3]
+    private double xCoordinate; // The x coordinate on which this board is drawn.
+    private double yCoordinate; // The y coordinate on which this board is drawn.
 
-    private final int MAX_COLUMNS = 9;
-    private final int MAX_ROWS = 4;
-
-    private HexagonTileMap hexagonTileMap;
-
-    private Tile[][] graph;
-    private Point2D[][] grid; // (x, y)Grid for hexagons
+    private Map<Point2D, Tile> map; // Keeps track of where tiles are placed.
 
     /**
      * Default Constructor
      */
-    public GameBoard(double width, double height) {
+    public GameBoard() {
+        image = new Image("/res/gameboard/gameboard_background.png");
+        width = height = 0;
+        xCoordinate = yCoordinate = 0;
+        map = new HashMap<>();
+    }
+
+    /**
+     * Overloaded Constructor
+     *
+     * @param width The width of this game board in pixels.
+     * @param height The height of this game board in pixels.
+     * @param xCoordinate The x coordinate on which this board is drawn.
+     * @param yCoordinate The Y coordinate on which this board is drawn.
+     */
+    public GameBoard(double width, double height, double xCoordinate, double yCoordinate) {
+        image = new Image("/res/gameboard/gameboard_background.png");
         this.width = 768;
         this.height = 432;
-
-        image = new Image("/res/gameboard/gameboard_background.png");
-
-        // TODO: Put this hexagon graph initialization routine in some other class/interface/method/whatever.
-        // Initialize graph for the tiles.
-        hexagonTileMap = new HexagonTileMap(width, height, 64 + 4);
-        /*
-        graph = new Tile[MAX_COLUMNS][MAX_ROWS]; // 11 columns x 4 rows
-        grid = new Point2D[MAX_COLUMNS][MAX_ROWS];
-
-        // Hexagon graph alternates from 3 rows and 4 rows.
-        for (int column = 0; column < graph.length; column += 2) {
-            graph[column][0] = null;
-            grid[column][0] = null;
-        }
-
-
-
-        double startX = 78;
-        double startY = 80;
-        double padding = 2;
-        double tempStartY = startY;
-        for (int column = 0; column < graph.length; column++) {
-            for (int row = 0; row < graph[column].length; row++) {
-                if (column % 2 == 0 && row == 0) {  // if column is 0 or even, only 3 hexagons in the column
-                    tempStartY += (64 + 2 * padding) / 2;
-                } else {
-                    graph[column][row] = new Tile();
-                    grid[column][row] = new Point2D(startX + padding, tempStartY + padding);
-                    tempStartY += 64 + 2 * padding;
-                }
-            }
-            startX += 64 + 2 * padding;
-            tempStartY = startY;
-        }
-        */
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
     }
 
-    // Place tile at the given x,y coordinate
-    public void placeTile(int column, int row, Tile tile) {
-        graph[column][row].setImage(tile.getImage());
+    /**
+     * Places a tile at the given location on the game board.
+     *
+     * @param Point2D The (x, y) coordinate to place the tile at.
+     * @param Tile The tile to be placed.
+     */
+    public void placeTileAt(Point2D xyCoordinate, Tile tile) {
+        map.put(xyCoordinate, tile);
     }
 
-    // Getter
-    public Tile getTileAt(int column, int row) {
-        return graph[column][row];
-    }
-
-    // Getter
-    public Tile[][] getGraph() {
-        return graph;
-    }
-
-    // Getter
-    public Point2D getPoint2DAt(int column, int row) {
-        return grid[column][row];
-    }
-
-    // Getter
-    public HexagonTileMap getHexagonTileMap() {
-        return hexagonTileMap;
+    /**
+     * Replaces the tile at the given location to the given tile.
+     *
+     * @param Point2D The location of the tile to replace.
+     * @param Tile The new tile to place.
+     */
+    public void replaceTileAt(Point2D xyCoordinate, Tile tile) {
+        map.replace(xyCoordinate, tile);
     }
 
     /**
@@ -110,6 +82,6 @@ public class GameBoard implements Drawable{
      */
     @Override
     public void draw(GraphicsContext graphicsContext) {
-
+        graphicsContext.drawImage(image, xCoordinate, yCoordinate);
     }
 }
