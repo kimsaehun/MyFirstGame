@@ -8,34 +8,33 @@ import javafx.scene.image.Image;
 
 /**
  * Provides a model for a tile.
- *
+ * <p>
  * A tile is a game component used to represent a unit of area on a game board.
  */
-public class Tile implements Drawable{
+public class Tile implements Drawable {
     private Image image;
-    private Shape2D shape;
-    private double sideLength;
+    private double xCoord;
+    private double yCoord;
 
     /**
      * Default Constructor
      */
     public Tile() {
-        sideLength = 0;
-        shape = new Hexagon();
-        image = new Image ("res/tile/tile_empty.png");
+        image = new Image("res/tile/tile_empty.png");
+        xCoord = 0;
+        yCoord = 0;
     }
 
     /**
      * Overloaded Constructor
      *
-     * @param orientation the orientation of the tile.
-     * @param sideLength the length of one side of the tile.
-     * @param image the associated image for the tile.
+     * @param xCoord The x coordinate of this tile on the screen.
+     * @param yCoord The y coordinate of this tile on the screen.
      */
-    public Tile(Hexagon.Orientation orientation, double sideLength, Image image) {
-        this.sideLength = sideLength;
-        shape = new Hexagon(orientation, sideLength);
-        this.image = image;
+    public Tile(double xCoord, double yCoord) {
+        image = new Image("res/tile/tile_empty.png");
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
     }
 
     // Getters and Setters
@@ -43,7 +42,9 @@ public class Tile implements Drawable{
         return image;
     }
 
-    public void setImage(Image image) { this.image = image;}
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     /**
      * Draws the class onto the screen.
@@ -52,6 +53,6 @@ public class Tile implements Drawable{
      */
     @Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(image, 0, 0);
+        graphicsContext.drawImage(image, xCoord, yCoord);
     }
 }
