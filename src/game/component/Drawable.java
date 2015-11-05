@@ -1,4 +1,4 @@
-package game.system;
+package game.component;
 
 import javafx.scene.canvas.GraphicsContext;
 
