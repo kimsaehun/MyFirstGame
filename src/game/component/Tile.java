@@ -1,5 +1,6 @@
 package game.component;
 
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -8,10 +9,11 @@ import javafx.scene.image.Image;
  * <p>
  * A tile is a game component used to represent a unit of area on a game board.
  */
-public class Tile extends Component{
+public class Tile extends Component {
     private Image image;
-    private double xCoordinate;
-    private double yCoordinate;
+    private double width; // Width of this tile in pixels
+    private double height; // Height of this tile in pixels
+    private Point2D coordinate;
 
     /**
      * Default Constructor
@@ -19,21 +21,23 @@ public class Tile extends Component{
     public Tile() {
         super();
         image = new Image("res/tile/tile_empty.png");
-        xCoordinate = 0;
-        yCoordinate = 0;
+        width = height = 0;
+        coordinate = new Point2D(0, 0);
     }
 
     /**
      * Overloaded Constructor
      *
-     * @param image The image associated with this tile.
-     * @param xCoord The x coordinate of this tile on the screen.
-     * @param yCoord The y coordinate of this tile on the screen.
+     * @param image      The image associated with this tile.
+     * @param width      The width of this game board in pixels.
+     * @param height     The height of this game board in pixels.
+     * @param coordinate The coordinate of where this object is drawn.
      */
-    public Tile(Image image, double xCoordinate, double yCoordinate) {
+    public Tile(Image image, double width, double height, Point2D coordinate) {
         this.image = image;
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+        this.width = width;
+        this.height = height;
+        this.coordinate = coordinate;
     }
 
     /**
@@ -43,7 +47,7 @@ public class Tile extends Component{
      */
     @Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(image, xCoordinate, yCoordinate);
+        graphicsContext.drawImage(image, coordinate.getX(), coordinate.getY());
     }
 
     // Getters and Setters
@@ -55,11 +59,11 @@ public class Tile extends Component{
         this.image = image;
     }
 
-    public double getXCoordinate() { return xCoordinate; }
+    public Point2D getCoordinate() {
+        return coordinate;
+    }
 
-    public double getYCoordinate() { return yCoordinate; }
-
-    public void setXCoordinate(double xCoordinate) { this.xCoordinate = xCoordinate; }
-
-    public void setYCoordinate(double yCoordinate) { this.yCoordinate = yCoordinate; }
+    public void setCoordinate(Point2D coordinate) {
+        this.coordinate = coordinate;
+    }
 }

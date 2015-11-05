@@ -1,5 +1,6 @@
 package game.component;
 
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -13,8 +14,7 @@ public class Board extends Component {
     private Image image;
     private double width; // Width in pixels
     private double height; // Height in pixels
-    private double xCoordinate; // x coordinate of the top left corner of this board
-    private double yCoordinate; // y coordinate of the top left corner of this board
+    private Point2D coordinate; // The coordinate of the top left corner of this board
 
     private List<Component> componentList; // List of components placed on this board.
 
@@ -24,25 +24,23 @@ public class Board extends Component {
     public Board() {
         image = null;
         width = height = 0;
-        xCoordinate = yCoordinate = 0;
+        coordinate = new Point2D(0, 0);
         componentList = new ArrayList<>(0);
     }
 
     /**
      * Overloaded Constructor
      *
-     * @param image       The image associated with this board.
-     * @param width       The width of this game board in pixels.
-     * @param height      The height of this game board in pixels.
-     * @param xCoordinate The x coordinate on which this board is drawn.
-     * @param yCoordinate The Y coordinate on which this board is drawn.
+     * @param image      The image associated with this board.
+     * @param width      The width of this game board in pixels.
+     * @param height     The height of this game board in pixels.
+     * @param coordinate The coordinate on which this board is drawn.
      */
-    public Board(Image image, double width, double height, double xCoordinate, double yCoordinate) {
+    public Board(Image image, double width, double height, Point2D coordinate) {
         this.image = image;
         this.width = width;
         this.height = height;
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+        this.coordinate = coordinate;
         componentList = new ArrayList<>(0);
     }
 
@@ -71,7 +69,7 @@ public class Board extends Component {
      */
     @Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(image, xCoordinate, yCoordinate);
+        graphicsContext.drawImage(image, coordinate.getX(), coordinate.getY());
         for (Component component : componentList) {
             component.draw(graphicsContext);
         }
