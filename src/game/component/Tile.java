@@ -24,6 +24,19 @@ public class Tile extends Component{
     }
 
     /**
+     * Overloaded Constructor
+     *
+     * @param image The image associated with this tile.
+     * @param xCoord The x coordinate of this tile on the screen.
+     * @param yCoord The y coordinate of this tile on the screen.
+     */
+    public Tile(Image image, double xCoordinate, double yCoordinate) {
+        this.image = image;
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
+    }
+
+    /**
      * Draws the class onto the screen.
      *
      * @param graphicsContext
@@ -31,18 +44,6 @@ public class Tile extends Component{
     @Override
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.drawImage(image, xCoordinate, yCoordinate);
-    }
-
-    /**
-     * Overloaded Constructor
-     *
-     * @param xCoord The x coordinate of this tile on the screen.
-     * @param yCoord The y coordinate of this tile on the screen.
-     */
-    public Tile(double xCoordinate, double yCoordinate) {
-        image = new Image("res/tile/tile_empty.png");
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
     }
 
     // Getters and Setters

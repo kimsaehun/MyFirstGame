@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * Provides a model for the physical game board.
- * <p>
+ *
  * A game board is a physical surface of a game.
  * Game components are usually placed on the game board.
  */
