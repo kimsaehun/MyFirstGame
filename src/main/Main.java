@@ -1,6 +1,5 @@
 package main;
 
-import game.component.GameBoard;
 import game.system.MainMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
