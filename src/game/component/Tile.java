@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
  */
 public class Tile extends Component {
     private Type type;
-    private double priority;
+    private int priority;
     private Image image;
     private double width; // Width of this tile in pixels
     private double height; // Height of this tile in pixels
@@ -21,8 +21,8 @@ public class Tile extends Component {
      * Default Constructor
      */
     public Tile() {
-        super();
-        image = new Image("res/tile/tile_empty.png");
+        priority = 1;
+        image = null;
         width = height = 0;
         coordinate = new Point2D(0, 0);
     }
@@ -33,36 +33,11 @@ public class Tile extends Component {
      * @param type The type of this tile.
      */
     public Tile(Type type) {
+        priority = 1;
         this.type = type;
-        image = new Image("res/tile/tile_empty.png");
+        image = null;
         coordinate = new Point2D(0, 0);
     }
-
-    /**
-     * Overloaded Constructor
-     *
-     * @param coordinate The coordinate of where this object is drawn.
-     */
-    public Tile(Point2D coordinate) {
-        image = new Image("res/tile/tile_empty.png");
-        this.coordinate = coordinate;
-    }
-
-    /**
-     * Overloaded Constructor
-     *
-     * @param image      The image associated with this tile.
-     * @param width      The width of this game board in pixels.
-     * @param height     The height of this game board in pixels.
-     * @param coordinate The coordinate of where this object is drawn.
-     */
-    public Tile(Image image, double width, double height, Point2D coordinate) {
-    this.image = image;
-    this.width = width;
-    this.height = height;
-    this.coordinate = coordinate;
-    }
-
 
     /**
      * Returns the components type.
@@ -78,7 +53,7 @@ public class Tile extends Component {
      * @param priority
      */
     @Override
-    public void setPriority(double priority) {
+    public void setPriority(int priority) {
         this.priority = priority;
     }
 
@@ -86,7 +61,7 @@ public class Tile extends Component {
      * Returns the priority level of the component.
      */
     @Override
-    public double getPriority() {
+    public int getPriority() {
         return priority;
     }
 

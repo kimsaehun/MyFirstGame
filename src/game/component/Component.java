@@ -29,12 +29,12 @@ public abstract class Component implements Drawable {
     /**
      * Sets the priority level of the component.
      */
-    public abstract void setPriority(double priority);
+    public abstract void setPriority(int priority);
 
     /**
      * Returns the priority level of the component.
      */
-    public abstract double getPriority();
+    public abstract int getPriority();
 
     /**
      * Draws the class onto the screen.

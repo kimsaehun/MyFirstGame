@@ -6,6 +6,7 @@ import game.component.Component;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -37,8 +38,8 @@ public class GameSystem {
 
     // TODO: Put this in the game loop
     public void drawGame() {
-        Map<Point2D, Component> map = componentHandler.getComponents();
-        for (Map.Entry<Point2D, Component> entry : map.entrySet()) {
+        List<Map.Entry<Point2D, ? extends Component>> components = componentHandler.getComponents();
+        for (Map.Entry<Point2D, ? extends Component> entry : components) {
             visualSystem.draw(entry.getKey(), entry.getValue());
         }
     }

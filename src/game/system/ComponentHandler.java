@@ -6,6 +6,7 @@ import game.component.Tile;
 import javafx.geometry.Point2D;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * This class is used by the GameSystem to operate on all components.
@@ -33,11 +34,11 @@ public class ComponentHandler {
         initializeHexagonMap();
     }
 
-    public Map<Point2D, Component> getComponents() {
-        Map<Point2D, Component> componentMap = new HashMap<>(0);
-        componentMap.putAll(boards);
-        componentMap.putAll(tiles);
-        return componentMap;
+    public List<Map.Entry<Point2D, ? extends Component>> getComponents() {
+        List<Map.Entry<Point2D, ? extends Component>> componentList = new ArrayList<>(0);
+        componentList.addAll(boards.entrySet().stream().collect(Collectors.toList()));
+        componentList.addAll(tiles.entrySet().stream().collect(Collectors.toList()));
+        return componentList;
     }
 
     /**
@@ -66,11 +67,11 @@ public class ComponentHandler {
                 tempCoordinate = new Point2D(tempX + (paddingX / 2), tempY + (paddingY / 2));
                 tiles.put(tempCoordinate, new Tile(Tile.Type.EMPTY));
                 tempY += unitSize + paddingY;
-                System.out.println(tempCoordinate);
+                //System.out.println(tempCoordinate);
             }
             tempX = startX;
             tempY = startY;
         }
-        System.out.println(tiles.size());
+        //System.out.println(tiles.size() + " tiles");
     }
 }

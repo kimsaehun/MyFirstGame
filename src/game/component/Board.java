@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Board extends Component {
     private Type type;
-    private double priority;
+    private int priority;
     private Image image;
     private double width; // Width in pixels
     private double height; // Height in pixels
@@ -40,18 +40,6 @@ public class Board extends Component {
         image = null;
         width = height = 0;
         coordinate = new Point2D(0, 0);
-        componentList = new ArrayList<>(0);
-    }
-
-    /**
-     * Overloaded Constructor
-     *
-     * @param image      The image associated with this board.
-     */
-    public Board(Image image) {
-        this.image = image;
-        width = height = 0;
-        this.coordinate = new Point2D(0,0);
         componentList = new ArrayList<>(0);
     }
 
@@ -101,7 +89,7 @@ public class Board extends Component {
      * Sets the priority level of the component.
      */
     @Override
-    public void setPriority(double priority) {
+    public void setPriority(int priority) {
         this.priority = priority;
     }
 
@@ -109,7 +97,7 @@ public class Board extends Component {
      * Returns the priority level of the component.
      */
     @Override
-    public double getPriority() {
+    public int getPriority() {
         return priority;
     }
 
