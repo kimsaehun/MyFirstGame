@@ -1,6 +1,5 @@
 package game.system;
 
-import game.component.GameBoard;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -39,7 +38,6 @@ public class MainMenu{
 
         // Add button to start playing
         Button startButton = new Button("Start");
-        GameBoard gameBoard = new GameBoard(768,432, 0, 0);
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 GameSystem gs = new GameSystem();

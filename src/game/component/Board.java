@@ -11,6 +11,8 @@ import java.util.List;
  * Provides a model for a physical surface on which components are placed.
  */
 public class Board extends Component {
+    private Type type;
+    private double priority;
     private Image image;
     private double width; // Width in pixels
     private double height; // Height in pixels
@@ -22,9 +24,34 @@ public class Board extends Component {
      * Default Constructor
      */
     public Board() {
+        priority = 0;
         image = null;
         width = height = 0;
         coordinate = new Point2D(0, 0);
+        componentList = new ArrayList<>(0);
+    }
+
+    /**
+     * Overloaded Constructor
+     */
+    public Board(Type type) {
+        priority = 0;
+        this.type = type;
+        image = null;
+        width = height = 0;
+        coordinate = new Point2D(0, 0);
+        componentList = new ArrayList<>(0);
+    }
+
+    /**
+     * Overloaded Constructor
+     *
+     * @param image      The image associated with this board.
+     */
+    public Board(Image image) {
+        this.image = image;
+        width = height = 0;
+        this.coordinate = new Point2D(0,0);
         componentList = new ArrayList<>(0);
     }
 
@@ -60,6 +87,30 @@ public class Board extends Component {
      */
     public void remove(Component component) {
         componentList.remove(component);
+    }
+
+    /**
+     * Returns the components type.
+     */
+    @Override
+    public Type getType() {
+        return type;
+    }
+
+    /**
+     * Sets the priority level of the component.
+     */
+    @Override
+    public void setPriority(double priority) {
+        this.priority = priority;
+    }
+
+    /**
+     * Returns the priority level of the component.
+     */
+    @Override
+    public double getPriority() {
+        return priority;
     }
 
     /**
