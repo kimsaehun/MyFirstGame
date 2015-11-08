@@ -14,6 +14,8 @@ import javafx.scene.image.Image;
 public class VisualSystem {
     private final Image IMAGE_GAMEBOARD = new Image("res/gameboard/gameboard_background.png");
     private final Image IMAGE_TILE_EMPTY = new Image("res/tile/tile_empty.png");
+    private final Image IMAGE_TILE_ORANGE = new Image("res/tile/tile_orange.png");
+    private final Image IMAGE_TILE_GREEN = new Image("res/tile/tile_green.png");
 
     private Group group;
     private Scene scene;
@@ -35,11 +37,21 @@ public class VisualSystem {
     public void draw(Point2D xyCoordinate, Component component) {
         double x = xyCoordinate.getX();
         double y = xyCoordinate.getY();
-        if (component.getType() == Component.Type.GAMEBOARD) {
-            graphicsContext.drawImage(IMAGE_GAMEBOARD, x, y);
-        }
-        if (component.getType() == Component.Type.EMPTY) {
-            graphicsContext.drawImage(IMAGE_TILE_EMPTY, x, y);
+        switch (component.getType()) {
+            case GAMEBOARD:
+                graphicsContext.drawImage(IMAGE_GAMEBOARD, x, y);
+                break;
+            case EMPTY:
+                graphicsContext.drawImage(IMAGE_TILE_EMPTY, x, y);
+                break;
+            case ORANGE:
+                graphicsContext.drawImage(IMAGE_TILE_ORANGE, x, y);
+                break;
+            case GREEN:
+                graphicsContext.drawImage(IMAGE_TILE_GREEN, x, y);
+                break;
+            default:
+                break;
         }
     }
 
