@@ -33,6 +33,17 @@ public class VisualSystem {
         group.getChildren().add(canvas);
     }
 
+    /**
+     * Overloaded Constructor
+     */
+    public VisualSystem(Group group, Scene scene) {
+        this.group = group;
+        this.scene = scene;
+        canvas = new Canvas(768, 432);
+        graphicsContext = canvas.getGraphicsContext2D();
+        group.getChildren().add(canvas);
+    }
+
     // Temporary function just to get something running
     public void draw(Point2D xyCoordinate, Component component) {
         double x = xyCoordinate.getX();
