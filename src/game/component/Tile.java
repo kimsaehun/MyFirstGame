@@ -40,11 +40,19 @@ public class Tile extends Component {
     }
 
     /**
-     * Returns the components type.
+     * Returns the component's type.
      */
     @Override
     public Type getType() {
         return type;
+    }
+
+    /**
+     * Sets the component's type.
+     */
+    @Override
+    public void setType(Type type) {
+        this.type = type;
     }
 
     /**

@@ -3,36 +3,28 @@ package game.component;
 import javafx.scene.canvas.GraphicsContext;
 
 public abstract class Component implements Drawable {
+    // TODO: Figure out how to mimic inheritance on enums.
     public enum Type {
         GAMEBOARD, EMPTY, GREEN, ORANGE
     }
 
     /**
-     * Enum type for the various type of boards.
-     */
-    public enum BoardType {
-
-    }
-
-    /**
-     * Enum type for the various type of tiles.
-     */
-    public enum TileType {
-
-    }
-
-    /**
-     * Returns the components type.
+     * Returns the component's type.
      */
     public abstract Type getType();
 
     /**
-     * Sets the priority level of the component.
+     * Sets the component's type.
+     */
+    public abstract void setType(Type type);
+
+    /**
+     * Sets the component's priority level.
      */
     public abstract void setPriority(int priority);
 
     /**
-     * Returns the priority level of the component.
+     * Returns the component's priority level.
      */
     public abstract int getPriority();
 
