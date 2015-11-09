@@ -10,6 +10,11 @@ import javafx.scene.image.Image;
  * A tile is a game component used to represent a unit of area on a game board.
  */
 public class Tile extends Component {
+    // Different images for different tiles.
+    private final Image TILE_EMPTY = new Image("res/tile/tile_empty.png");
+    private final Image TILE_ORANGE = new Image("res/tile/tile_orange.png");
+    private final Image TILE_GREEN = new Image("res/tile/tile_green.png");
+
     private Type type;
     private int priority;
     private Image image;
@@ -56,6 +61,25 @@ public class Tile extends Component {
     }
 
     /**
+     * Gets the image based on the component's type.
+     *
+     * @return The image associated with the component.
+     */
+    @Override
+    public Image getImage() {
+        switch (type) {
+            case TILE_EMPTY:
+                return TILE_EMPTY;
+            case TILE_GREEN:
+                return TILE_GREEN;
+            case TILE_ORANGE:
+                return TILE_ORANGE;
+            default:
+                return null;
+        }
+    }
+
+    /**
      * Sets the priority level of the component.
      *
      * @param priority
@@ -84,9 +108,6 @@ public class Tile extends Component {
     }
 
     // Getters and Setters
-    public Image getImage() {
-        return image;
-    }
 
     public void setImage(Image image) {
         this.image = image;

@@ -11,6 +11,9 @@ import java.util.List;
  * Provides a model for a physical surface on which components are placed.
  */
 public class Board extends Component {
+    // Different images for different boards.
+    private final Image BACKGROUND = new Image("res/gameboard/gameboard_background.png");
+
     private Type type;
     private int priority;
     private Image image;
@@ -91,6 +94,21 @@ public class Board extends Component {
     @Override
     public void setType(Type type) {
         this.type = type;
+    }
+
+    /**
+     * Gets the image based on the component's type.
+     *
+     * @return The image associated with the component.
+     */
+    @Override
+    public Image getImage() {
+        switch (type) {
+            case GAMEBOARD:
+                return BACKGROUND;
+            default:
+                return null;
+        }
     }
 
     /**

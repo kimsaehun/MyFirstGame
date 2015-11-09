@@ -12,11 +12,6 @@ import javafx.scene.image.Image;
  * System used to give vision of the game.
  */
 public class VisualSystem {
-    private final Image IMAGE_GAMEBOARD = new Image("res/gameboard/gameboard_background.png");
-    private final Image IMAGE_TILE_EMPTY = new Image("res/tile/tile_empty.png");
-    private final Image IMAGE_TILE_ORANGE = new Image("res/tile/tile_orange.png");
-    private final Image IMAGE_TILE_GREEN = new Image("res/tile/tile_green.png");
-
     private Group group;
     private Scene scene;
     private Canvas canvas;
@@ -48,22 +43,8 @@ public class VisualSystem {
     public void draw(Point2D xyCoordinate, Component component) {
         double x = xyCoordinate.getX();
         double y = xyCoordinate.getY();
-        switch (component.getType()) {
-            case GAMEBOARD:
-                graphicsContext.drawImage(IMAGE_GAMEBOARD, x, y);
-                break;
-            case EMPTY:
-                graphicsContext.drawImage(IMAGE_TILE_EMPTY, x, y);
-                break;
-            case ORANGE:
-                graphicsContext.drawImage(IMAGE_TILE_ORANGE, x, y);
-                break;
-            case GREEN:
-                graphicsContext.drawImage(IMAGE_TILE_GREEN, x, y);
-                break;
-            default:
-                break;
-        }
+        Image image = component.getImage();
+        graphicsContext.drawImage(image, x, y);
     }
 
     /**
