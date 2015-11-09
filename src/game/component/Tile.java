@@ -97,18 +97,7 @@ public class Tile extends Component {
         return priority;
     }
 
-    /**
-     * Draws the class onto the screen.
-     *
-     * @param graphicsContext
-     */
-    @Override
-    public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(image, coordinate.getX(), coordinate.getY());
-    }
-
     // Getters and Setters
-
     public void setImage(Image image) {
         this.image = image;
     }

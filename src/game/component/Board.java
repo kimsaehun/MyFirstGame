@@ -126,17 +126,4 @@ public class Board extends Component {
     public int getPriority() {
         return priority;
     }
-
-    /**
-     * Draws the class onto the screen.
-     *
-     * @param graphicsContext
-     */
-    @Override
-    public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(image, coordinate.getX(), coordinate.getY());
-        for (Component component : componentList) {
-            component.draw(graphicsContext);
-        }
-    }
 }
