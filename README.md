@@ -1,2 +1,2 @@
 # MyFirstGame
-First attempt at making a game.
+First attempt at making a game = FAILED
